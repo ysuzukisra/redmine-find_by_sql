@@ -1,0 +1,42 @@
+ysuzuki@redmine:~/workspace $ export RAILS_ENV="production" 
+ysuzuki@redmine:~/workspace $ bundle exec bin/rails generate redmine_plugin find_by_sql
+      create  plugins/find_by_sql/app
+      create  plugins/find_by_sql/app/controllers
+      create  plugins/find_by_sql/app/helpers
+      create  plugins/find_by_sql/app/models
+      create  plugins/find_by_sql/app/views
+      create  plugins/find_by_sql/db/migrate
+      create  plugins/find_by_sql/lib/tasks
+      create  plugins/find_by_sql/assets/images
+      create  plugins/find_by_sql/assets/javascripts
+      create  plugins/find_by_sql/assets/stylesheets
+      create  plugins/find_by_sql/config/locales
+      create  plugins/find_by_sql/test
+      create  plugins/find_by_sql/test/fixtures
+      create  plugins/find_by_sql/test/unit
+      create  plugins/find_by_sql/test/functional
+      create  plugins/find_by_sql/test/integration
+      create  plugins/find_by_sql/README.rdoc
+      create  plugins/find_by_sql/init.rb
+      create  plugins/find_by_sql/config/routes.rb
+      create  plugins/find_by_sql/config/locales/en.yml
+      create  plugins/find_by_sql/test/test_helper.rb
+ysuzuki@redmine:~/workspace/plugins/find_by_sql (master) $
+
+ysuzuki@redmine:~/workspace $ cd plugins/find_by_sql
+ysuzuki@redmine:~/workspace/plugins/find_by_sql $ git init
+Initialized empty Git repository in /home/ubuntu/workspace/plugins/find_by_sql/.git/
+
+ysuzuki@redmine:~/workspace/plugins/find_by_sql (master) $ git add *
+ysuzuki@redmine:~/workspace/plugins/find_by_sql (master) $ git commit -m 'Initial commit'
+[master (root-commit) 8566178] Initial commit
+ 5 files changed, 18 insertions(+)
+ create mode 100644 README.rdoc
+ create mode 100644 config/locales/en.yml
+ create mode 100644 config/routes.rb
+ create mode 100644 init.rb
+ create mode 100644 test/test_helper.rb
+ysuzuki@redmine:~/workspace/plugins/find_by_sql (master) $ 
+(edit this file 'memo.txt')
+ysuzuki@redmine:~/workspace/plugins/find_by_sql (master) $ git remote add origin git@github.com:ysuzukisra/redmine-find_by_sql.git
+ysuzuki@redmine:~/workspace/plugins/find_by_sql (master) $ git push -u origin master
