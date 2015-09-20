@@ -37,6 +37,18 @@ ysuzuki@redmine:~/workspace/plugins/find_by_sql (master) $ git commit -m 'Initia
  create mode 100644 init.rb
  create mode 100644 test/test_helper.rb
 ysuzuki@redmine:~/workspace/plugins/find_by_sql (master) $ 
+
 (edit this file 'memo.txt')
+ysuzuki@redmine:~/workspace/plugins/find_by_sql (master) $ git add memo.txt 
+ysuzuki@redmine:~/workspace/plugins/find_by_sql (master) $ git commit -m 'add memo.txt'
+ysuzuki@redmine:~/workspace/plugins/find_by_sql (master) $ 
+
 ysuzuki@redmine:~/workspace/plugins/find_by_sql (master) $ git remote add origin git@github.com:ysuzukisra/redmine-find_by_sql.git
 ysuzuki@redmine:~/workspace/plugins/find_by_sql (master) $ git push -u origin master
+ysuzuki@redmine:~/workspace/plugins/find_by_sql (master) $ 
+
+(edit init.rb)
+ysuzuki@redmine:~/workspace/plugins/find_by_sql (master) $ git add init.rb memo.txt 
+ysuzuki@redmine:~/workspace/plugins/find_by_sql (master) $ git commit -m 'edit init.rb'                                                                                                                                                  
+ysuzuki@redmine:~/workspace/plugins/find_by_sql (master) $ git push
+
