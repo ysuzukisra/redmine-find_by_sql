@@ -52,3 +52,14 @@ ysuzuki@redmine:~/workspace/plugins/find_by_sql (master) $ git add init.rb memo.
 ysuzuki@redmine:~/workspace/plugins/find_by_sql (master) $ git commit -m 'edit init.rb'                                                                                                                                                  
 ysuzuki@redmine:~/workspace/plugins/find_by_sql (master) $ git push
 
+ysuzuki@redmine:~/workspace $ bundle exec bin/rails generate redmine_plugin_controller find_by_sql find_by_sql index execute_sql                                                                                              
+      create  plugins/find_by_sql/app/controllers/find_by_sql_controller.rb
+      create  plugins/find_by_sql/app/helpers/find_by_sql_helper.rb
+      create  plugins/find_by_sql/test/functional/find_by_sql_controller_test.rb
+      create  plugins/find_by_sql/app/views/find_by_sql/index.html.erb
+      create  plugins/find_by_sql/app/views/find_by_sql/execute_sql.html.erb
+ysuzuki@redmine:~/workspace $ cd plugins/find_by_sql/
+ysuzuki@redmine:~/workspace/plugins/find_by_sql (master) $ git add .
+ysuzuki@redmine:~/workspace/plugins/find_by_sql (master) $ git commit -m 'bundle exec bin/rails generate redmine_plugin_controller find_by_sql find_by_sql index execute_sql'
+ysuzuki@redmine:~/workspace/plugins/find_by_sql (master) $ git push
+
