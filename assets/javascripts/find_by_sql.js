@@ -42,18 +42,35 @@ $(function() {
     manualRowResize: true,
     contextMenu: ['alignment']
   });
+
+  var grid_count = grid_data.length;
+  var msg = $("label#search_message");
+  var msg_str = "Total " + grid_count + " rows.";
+  msg.text(msg_str);
+
   // 検索処理
   var hot = container.handsontable('getInstance');
   var search_field = $("input#search_str");
   search_field.on('keyup blur', function (eve) {
-    var msg = $("label#search_message"),
-        val = this.value;
-    var query_result = hot.search.query(this.value);
+    var val = this.value,
+        msg_str = "Total " + grid_count + " rows.",
+        query_result = hot.search.query(this.value);
     hot.render();
+
     if (val.length > 0) {
-      msg.text( query_result.length + " found");
+      if (query_result.length > 0) {
+        msg_str += " Search "
+                 + $('#grid tbody tr .htSearchResult').parent().length + " rows, "
+                 + query_result.length + " cells found.";
+        $('#grid tbody tr ').hide();                            // 全行非表示
+        $('#grid tbody tr .htSearchResult').parent().show();    // ヒット行表示
+      } else {
+        msg_str += " Search not found.";
+        $('#grid tbody tr ').show();    // 全行表示
+      }
     } else {
-      msg.text("");
+      $('#grid tbody tr ').show();      // 全行表示
     }
+    msg.text(msg_str);
   });
 })
