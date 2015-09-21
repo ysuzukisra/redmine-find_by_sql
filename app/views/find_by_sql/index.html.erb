@@ -1,1 +1,37 @@
-<h2>FindBySqlController#index</h2>
+<h2><%=l(:label_find_by_sql)%></h2>
+
+<%= labelled_form_for :find_by_sql, @find_by_sql, :url => find_by_sql_path do |f| %>
+
+  <%= error_messages_for @find_by_sql %>
+
+  <div class="box tabular">
+    <p><%= f.text_area :query, :cols => 60, :rows => 5 %></p>
+  </div>
+  <%= f.submit l(:button_do) %>
+
+<% end %>
+
+<h2><%=l(:label_result)%></h2>
+
+<% if @result.empty? %>
+  <p class="nodata"><%= l(:label_no_data) %></p>
+<% else %>
+  <table class="list">
+    <thead>
+      <tr>
+        <% @result.first.keys.each do |key| %>
+          <th><%= key %></th>
+        <% end %>
+      </tr>
+    </thead>
+    <tbody>
+      <% @result.each do |rec| %>
+        <tr class="<%= cycle('odd', 'even') %>">
+          <% rec.values.each do |val| %>
+            <td><%= val %></td>
+          <% end %>
+        </tr>
+      <% end %>
+    </tbody>
+  </table>
+<% end %>

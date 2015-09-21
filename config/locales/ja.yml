@@ -1,0 +1,6 @@
+# English strings go here for Rails i18n
+ja:
+  label_find_by_sql: SQLクエリ
+  field_query: クエリ文
+  button_do: 実行
+  label_result: 結果

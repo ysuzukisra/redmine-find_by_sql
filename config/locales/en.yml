@@ -1,3 +1,6 @@
 # English strings go here for Rails i18n
 en:
-  # my_label: "My label"
+  label_find_by_sql: SQL Query
+  field_query: Query Statement
+  button_do: Execute
+  label_result: Results
