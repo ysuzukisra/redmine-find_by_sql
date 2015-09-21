@@ -16,3 +16,44 @@ $(document).on("keypress", "#find_by_sql_query", function(e) {
     $.noop();
   }
 });
+
+// Grid表示 by HANDSONTABLE
+$(function() {
+  var container = $("#grid");
+  var grid_option = container.data("option"),
+      grid_data = container.data("data");
+  if (!grid_option) {
+    console.log("!grid_option");
+    return;
+  }
+  // HANDSONTABLE でグリッド表示
+  container.handsontable({
+    data: grid_data,
+    language: 'ja',
+    readOnly: true,
+    fillHandle: false,
+    rowHeaders: false,
+    colHeaders: Object.keys(grid_data[0]),
+    columnSorting: true,
+    search: true,
+    sortIndicator: true,
+    manualColumnMove: true,
+    manualColumnResize: true,
+    manualRowResize: true,
+    contextMenu: ['alignment']
+  });
+  // 検索処理
+  var hot = container.handsontable('getInstance');
+  var search_field = $("input#search_str");
+  search_field.on('keyup blur', function (eve) {
+    var msg = $("label#search_message"),
+        val = this.value;
+    var query_result = hot.search.query(this.value);
+    hot.render();
+    if (val.length > 0) {
+      msg.text( query_result.length + " found");
+    } else {
+      msg.text("");
+    }
+  });
+})

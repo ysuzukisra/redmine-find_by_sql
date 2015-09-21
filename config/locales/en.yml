@@ -4,3 +4,5 @@ en:
   field_query: Query Statement
   button_do: Execute
   label_result: Results
+  label_search: Search
+  label_search_placeholder: Search String...

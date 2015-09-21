@@ -4,3 +4,5 @@ ja:
   field_query: クエリ文
   button_do: 実行
   label_result: 結果
+  label_search: 検索
+  label_search_placeholder: 検索文字列...

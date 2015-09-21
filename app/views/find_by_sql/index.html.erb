@@ -1,3 +1,5 @@
+<%= javascript_include_tag "handsontable.full.min", :plugin=>"find_by_sql" %>
+<%= stylesheet_link_tag "handsontable.full.min", :plugin=>"find_by_sql" %>
 <%= javascript_include_tag "find_by_sql", :plugin=>"find_by_sql" %>
 
 <h2><%=l(:label_find_by_sql)%></h2>
@@ -18,22 +20,31 @@
 <% if @result.empty? %>
   <p class="nodata"><%= l(:label_no_data) %></p>
 <% else %>
-  <table class="list">
-    <thead>
-      <tr>
-        <% @result.first.keys.each do |key| %>
-          <th><%= key %></th>
-        <% end %>
-      </tr>
-    </thead>
-    <tbody>
-      <% @result.each do |rec| %>
-        <tr class="<%= cycle('odd', 'even') %>">
-          <% rec.values.each do |val| %>
-            <td><%= val %></td>
+  <% if @grid_option %>
+    <div class="box">
+      <%= label_tag(:search, l(:label_search)) %>
+      <%= text_field_tag "search[str]", "", :placeholder => l(:label_search_placeholder), :type => "search" %>
+      <%= label_tag(:search_message, "", :id => :search_message) %>
+    </div>
+    <div id="grid" style="width: 90%" data-option="<%= @grid_option %>" data-data="<%= @result.to_json %>"></div>
+  <% else %>
+    <table class="list">
+      <thead>
+        <tr>
+          <% @result.first.keys.each do |key| %>
+            <th><%= key %></th>
           <% end %>
         </tr>
-      <% end %>
-    </tbody>
-  </table>
+      </thead>
+      <tbody>
+        <% @result.each do |rec| %>
+          <tr class="<%= cycle('odd', 'even') %>">
+            <% rec.values.each do |val| %>
+              <td><%= val %></td>
+            <% end %>
+          </tr>
+        <% end %>
+      </tbody>
+    </table>
+  <% end %>
 <% end %>

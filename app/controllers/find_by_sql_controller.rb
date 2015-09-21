@@ -11,6 +11,8 @@ class FindBySqlController < ApplicationController
     query ||= ""
     @find_by_sql.query = query
 
+    @grid_option = true
+    
     # select_all は insert や update も出来てしまうが、その後、内部での結果格納時に例外が出るので
     # トランザクションを脱出してrollbackできた
     begin
