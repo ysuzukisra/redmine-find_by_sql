@@ -2,7 +2,9 @@
 
 class FindBySqlController < ApplicationController
   unloadable
-  
+
+  before_filter :require_admin
+
   def index
     @find_by_sql = FindBySqlHelper::FindBySql.new
     query = params[:find_by_sql][:query] if params.has_key?(:find_by_sql) && params[:find_by_sql].has_key?(:query)
